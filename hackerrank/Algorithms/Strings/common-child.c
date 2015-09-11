@@ -11,8 +11,8 @@ int main() {
   lena = strlen(a);
   lenb = strlen(b);
   dp[0][0] = 1;
-  for (i = 1; i < lena; i++){
-    for (j = 1; j < lenb; j++){
+  for (i = 1; i <= lena; i++){
+    for (j = 1; j <= lenb; j++){
       if (a[i-1] == b[i-1]) {
         dp[i][j] = dp[i-1][j-1] + 1;
       } else {
