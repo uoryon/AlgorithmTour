@@ -47,7 +47,7 @@ int main() {
             if (out != n) {
                 printf(",");
                 while (arr[l]==0) {l = (l+1)%n;}
-                while (arr[r]==0) {r = (r-1)%n;}
+                while (arr[r]==0) {r = (r+n-1)%n;}
             }
         }
         printf("\n");
