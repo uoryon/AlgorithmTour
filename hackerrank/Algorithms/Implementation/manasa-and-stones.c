@@ -22,7 +22,7 @@ int main() {
       if (i > 0 && res[i] == res[i-1]) {
         continue;
       }
-        printf("%d ", res[i]);
+      printf("%d ", res[i]);
     }
     printf("\n");
   }
