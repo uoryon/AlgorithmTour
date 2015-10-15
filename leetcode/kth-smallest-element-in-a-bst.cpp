@@ -2,29 +2,25 @@
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
  * };
  */
-class Solution {
-public:
-    int kthSmallest(TreeNode* root, int k) {
-        int out = 0;
-        queue<TreeNode *> q;
-        priority_queue<int, vector<int>, greater<int> > q2;
-        q.push(root);
-        while (!q.empty()) {
-            TreeNode *p = q.front();
-            q.pop();
-            if (p != NULL) {
-                q2.push(p->val);
-                q.push(p->left);
-                q.push(p->right);
-            }
-        }
-        while(k--) {out = q2.top();q2.pop();};
-        return out;
+ 
+int t = 0;
+int out = 0;
+void o(struct TreeNode *root, int k) {
+    if (root) {
+        o(root->left, k);
+        if (k == t) return;
+        t++;
+        out = root->val;
+        o(root->right, k);
     }
-};
-
+}
+ 
+int kthSmallest(struct TreeNode* root, int k) {
+    t = 0, out = 0;
+    o(root, k);
+    return out;
+}
